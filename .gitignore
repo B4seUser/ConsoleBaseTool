@@ -1,0 +1,14 @@
+# Visual Studio generated files and folders
+.vs/
+bin/
+obj/
+
+# Visual Studio cache files
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Logs
+*.log
+
+# Mac files
+.DS_Store
