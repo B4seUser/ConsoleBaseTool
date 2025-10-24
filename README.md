@@ -1,2 +1,35 @@
 # ConsoleBaseTool
-A DeltaForce tool written in AI is currently not fully developed
+
+## 项目介绍
+ConsoleBaseTool是一个基于.NET Framework 4.8开发的控制台应用程序工具。该工具提供了基础的控制台交互功能，并内置了自动更新系统。
+
+### 主要功能
+- 控制台交互界面
+- 自动版本检查
+- 程序自动更新
+
+### 系统要求
+- Windows操作系统
+- .NET Framework 4.8
+
+## Update文件格式说明
+
+程序的更新系统使用一个简单的文本文件来管理版本信息和下载链接。该文件应遵循以下格式：
+
+```
+[版本号]
+[下载链接]
+```
+
+其中：
+- 第一行必须包含当前最新版本号（如：1.0.0.1）
+- 第二行必须包含程序的下载链接（如：ConsoleBaseTool.exe或完整的URL路径）
+- 文件格式使用标准的换行符（\r\n或\n都可以被程序正确解析）
+
+**正确格式示例：**
+```
+1.0.0.1
+ConsoleBaseTool.exe
+```
+
+注意：程序会自动从配置的InfoUrl获取此文件内容，并解析版本号和下载链接。版本号格式应符合语义化版本规范。

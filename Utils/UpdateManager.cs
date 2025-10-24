@@ -8,10 +8,9 @@ namespace ConsoleBaseTool
 {
     public class UpdateManager
     {
-        public const string CurrentVersion = "1.0.0.0";
-        private const string VersionInfoUrl = "https://gitee.com/BaseUser/ConsoleBaseTool/raw/main/Update";
-        private const string DownloadUrl = "https://example.com/downloads/ConsoleBaseTool.exe";
-        
+        public const string CurrentVersion = null;
+        private const string InfoUrl = "https://gitee.com/BaseUser/ConsoleBaseTool/raw/main/Update";
+
         public static void CheckForUpdates()
         {
             try
@@ -55,15 +54,36 @@ namespace ConsoleBaseTool
                 {
                     client.Timeout = TimeSpan.FromSeconds(10);
                     client.DefaultRequestHeaders.UserAgent.ParseAdd("ConsoleBaseTool/" + CurrentVersion);
-                    string response = client.GetStringAsync(VersionInfoUrl).Result;
-                    string version = response.Trim();
-                    Console.WriteLine($"从服务器获取到的版本号: {version}");
-                    return version;
+                    string response = client.GetStringAsync(InfoUrl).Result;
+                    
+                    // 解析响应内容：第一行是版本号，第二行是下载链接
+                    string[] lines = response.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    
+                    if (lines.Length >= 1)
+                    {
+                        string version = lines[0].Trim();
+                        Console.WriteLine($"从服务器获取到的版本号: {version}");
+                        
+                        // 如果有第二行，则更新下载链接
+                        if (lines.Length >= 2)
+                        {
+                            string newDownloadUrl = lines[1].Trim();
+                            if (!string.IsNullOrEmpty(newDownloadUrl))
+                            {
+                                typeof(UpdateManager).GetField("DownloadUrl", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).SetValue(null, newDownloadUrl);
+                                Console.WriteLine($"从服务器获取到的下载链接: {newDownloadUrl}");
+                            }
+                        }
+                        
+                        return version;
+                    }
+                    
+                    return !string.IsNullOrEmpty(CurrentVersion) ? CurrentVersion : "1.0.0.0";
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"获取最新版本号失败: {ex.Message}");
+                Console.WriteLine($"获取新版本文件时失败");
                 if (ex.InnerException != null)
                 {
                     Console.WriteLine($"内部错误: {ex.InnerException.Message}");
@@ -94,6 +114,16 @@ namespace ConsoleBaseTool
             string tempFilePath = Path.Combine(programDirectory, "temp_ConsoleBaseTool.exe");
             string mainExeFileName = Path.GetFileName(programPath);
             
+            // 获取当前的下载链接
+            string currentDownloadUrl = (string)typeof(UpdateManager).GetField("DownloadUrl", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).GetValue(null);
+            
+            // 检查下载链接是否有效
+            if (string.IsNullOrEmpty(currentDownloadUrl))
+            {
+                Console.WriteLine("下载链接无效，无法生成更新脚本。");
+                return;
+            }
+            
             StringBuilder scriptContent = new StringBuilder();
             scriptContent.AppendLine("@echo off");
             scriptContent.AppendLine("chcp 65001 > nul");
@@ -101,7 +131,7 @@ namespace ConsoleBaseTool
             scriptContent.AppendLine("echo 等待主程序退出...");
             scriptContent.AppendLine("ping -n 3 127.0.0.1 > nul");
             
-            scriptContent.AppendLine($"powershell -Command \"Invoke-WebRequest -Uri '{DownloadUrl}' -OutFile '{tempFilePath}'\"");
+            scriptContent.AppendLine($"powershell -Command \"Invoke-WebRequest -Uri '{currentDownloadUrl}' -OutFile '{tempFilePath}' -UseBasicParsing\"");
             
             scriptContent.AppendLine("echo 替换程序文件...");
             scriptContent.AppendLine($"move /Y \"{tempFilePath}\" \"{mainExeFileName}\" > nul");
