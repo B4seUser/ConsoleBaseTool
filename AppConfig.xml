@@ -19,29 +19,4 @@
       <Description>三角洲数据帝是三角洲行动游戏玩家的最佳攻略网站，由B站Orzice开发运营，为玩家提供精准的游戏物品价格走势分析。【三角洲数据帝】为【三角洲小涛查】的Pro版本!</Description>
     </WebTool>
   </WebTools>
-  <MapPasswordCache>
-    <CacheDate>2025-10-29</CacheDate>
-    <MapPasswords>
-      <MapPassword id="1">
-        <MapName>零号大坝</MapName>
-        <Secret>5099</Secret>
-      </MapPassword>
-      <MapPassword id="2">
-        <MapName>长弓溪谷</MapName>
-        <Secret>6414</Secret>
-      </MapPassword>
-      <MapPassword id="3">
-        <MapName>巴克什</MapName>
-        <Secret>5952</Secret>
-      </MapPassword>
-      <MapPassword id="4">
-        <MapName>航天基地</MapName>
-        <Secret>4615</Secret>
-      </MapPassword>
-      <MapPassword id="5">
-        <MapName>潮汐监狱</MapName>
-        <Secret>9765</Secret>
-      </MapPassword>
-    </MapPasswords>
-  </MapPasswordCache>
 </AppConfig>
