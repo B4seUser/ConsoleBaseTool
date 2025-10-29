@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AppConfig>
-  <Version>1.1.25.1028</Version>
+  <Version>1.1.25.1029</Version>
   <UpdateUrl>https://gitee.com/BaseUser/ConsoleBaseTool/releases/download/v1.0.0.0-alpha/ConsoleBaseTool.exe</UpdateUrl>
   <WebTools>
     <WebTool>
