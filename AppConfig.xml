@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppConfig>
+  <Version>1.1.25.1028</Version>
+  <UpdateUrl>https://gitee.com/BaseUser/ConsoleBaseTool/releases/download/v1.0.0.0-alpha/ConsoleBaseTool.exe</UpdateUrl>
+  <WebTools>
+    <WebTool>
+      <Name>三角洲鼠鼠工具</Name>
+      <Url>https://shushu.fan/</Url>
+      <Description>鼠鼠工具，随机装备生成器 - 为你的游戏任务随机生成完整的装备配置，包括武器、护甲、头盔、弹药等。支持绝密难度、幸运大转盘等多种模式。三角洲高考，多种题库，来测试一下你的三角洲含金量！让你的游戏体验更加丰富有趣。</Description>
+    </WebTool>
+    <WebTool>
+      <Name>三角洲小涛查</Name>
+      <Url>https://www.acgice.com/sjz/v/index</Url>
+      <Description>三角洲小涛查-三角洲经济学，三角洲攻略站-三角洲鼠鼠工具-三角洲行动助手-acgice_B站Orzice | 三角洲小涛查</Description>
+    </WebTool>
+    <WebTool>
+      <Name>三角洲数据帝</Name>
+      <Url>https://orzice.com/v/index</Url>
+      <Description>三角洲数据帝是三角洲行动游戏玩家的最佳攻略网站，由B站Orzice开发运营，为玩家提供精准的游戏物品价格走势分析。【三角洲数据帝】为【三角洲小涛查】的Pro版本!</Description>
+    </WebTool>
+  </WebTools>
+  <MapPasswordCache>
+    <CacheDate>2025-10-29</CacheDate>
+    <MapPasswords>
+      <MapPassword id="1">
+        <MapName>零号大坝</MapName>
+        <Secret>5099</Secret>
+      </MapPassword>
+      <MapPassword id="2">
+        <MapName>长弓溪谷</MapName>
+        <Secret>6414</Secret>
+      </MapPassword>
+      <MapPassword id="3">
+        <MapName>巴克什</MapName>
+        <Secret>5952</Secret>
+      </MapPassword>
+      <MapPassword id="4">
+        <MapName>航天基地</MapName>
+        <Secret>4615</Secret>
+      </MapPassword>
+      <MapPassword id="5">
+        <MapName>潮汐监狱</MapName>
+        <Secret>9765</Secret>
+      </MapPassword>
+    </MapPasswords>
+  </MapPasswordCache>
+</AppConfig>
