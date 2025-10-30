@@ -9,6 +9,11 @@
       <Description>鼠鼠工具，随机装备生成器 - 为你的游戏任务随机生成完整的装备配置，包括武器、护甲、头盔、弹药等。支持绝密难度、幸运大转盘等多种模式。三角洲高考，多种题库，来测试一下你的三角洲含金量！让你的游戏体验更加丰富有趣。</Description>
     </WebTool>
     <WebTool>
+      <Name>三角洲攻略站</Name>
+      <Url>https://www.dfhub.cn/</Url>
+      <Description>三角洲攻略站-三角洲数据查询攻略站-三角洲日报-游戏物品数据攻略平台</Description>
+    </WebTool>
+    <WebTool>
       <Name>三角洲小涛查</Name>
       <Url>https://www.acgice.com/sjz/v/index</Url>
       <Description>三角洲小涛查-三角洲经济学，三角洲攻略站-三角洲鼠鼠工具-三角洲行动助手-acgice_B站Orzice | 三角洲小涛查</Description>
